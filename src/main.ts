@@ -20,11 +20,11 @@ async function bootstrap() {
   });
 
   app.enableCors({
-    origin: 'http://localhost:3000',
+    origin: process.env.CLIENT_URI,
     methods: 'GET,POST,PATCH,DELETE,OPTIONS',
     credentials: true,
   });
 
-  await app.listen(4200);
+  await app.listen(process.env.PORT || 4200);
 }
 bootstrap();
